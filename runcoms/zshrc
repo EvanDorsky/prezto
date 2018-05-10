@@ -15,9 +15,9 @@ fi
 # Enig config
 # autoload -Uz promptinit
 # promptinit
+prompt enigmoid
 
 export cloudpath="/Users/Enigmoid/Library/Mobile Documents/com~apple~CloudDocs"
-
 
 # prompt editing alias
 alias eprompt='vim ~/.zprezto/modules/prompt/functions/prompt_enigmoid_setup'
