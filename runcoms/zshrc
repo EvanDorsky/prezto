@@ -17,7 +17,8 @@ fi
 # promptinit
 prompt enigmoid
 
-export cloudpath="/Users/Enigmoid/Library/Mobile Documents/com~apple~CloudDocs"
+export cloudpath='/Users/evan/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias cgo="cd $cloudpath"
 
 # prompt editing alias
 alias eprompt='vim ~/.zprezto/modules/prompt/functions/prompt_enigmoid_setup'
@@ -249,6 +250,22 @@ function tre() {
 function allpaper() {
 	sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '$1'" && killall Dock
 }
+
+function focus() {
+	if [ -e /etc/hosts.focus ]; then
+		sudo mv /etc/hosts /etc/hosts.bak
+		sudo mv /etc/hosts.focus /etc/hosts
+	fi
+}
+
+function defocus() {
+	if [ -e /etc/hosts.bak ]; then
+		sudo mv /etc/hosts /etc/hosts.focus
+		sudo mv /etc/hosts.bak /etc/hosts
+	fi
+}
+
+alias dockspace="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"spacer-tile\";}'; killall Dock"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
