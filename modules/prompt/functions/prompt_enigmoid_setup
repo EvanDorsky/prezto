@@ -50,24 +50,12 @@ function prompt_enigmoid_setup {
   sysenv=$(uname -a)
   
   # Set editor-info parameters.
-  zstyle ':prezto:module:editor:info:completing' format '%B%F{red}...%f%b'
-  zstyle ':prezto:module:editor:info:keymap:primary' format ' %F{blue}%B❯%F{blue}❯%F{blue}❯%f%b'
-  # if [[ $sysenv == *"MacBook-Pro"* ]]; then
-	  zstyle ':prezto:module:editor:info:keymap:primary' format ' %F{blue}❯%F{blue}%B❯%F{fg3}❯%f%b'
-  # fi
-
-#  if [[ $sysenv == *"Mac-Pro"* ]]; then
-#      zstyle ':prezto:module:editor:info:keymap:primary' format ' %F{253}%B❯%F{254}❯%F{255}❯%f%b'
-#  fi
-#  if [[ $sysenv == *"Ubuntu"* ]]; then
-#      zstyle ':prezto:module:editor:info:keymap:primary' format ' %F{202}%B>%F{208}>%F{214}>%f%b'
-#  fi
-
+  zstyle ':prezto:module:editor:info:keymap:primary'           format ' %F{blue}❯%F{blue}%B❯%F{fg3}❯%f%b'
   zstyle ':prezto:module:editor:info:keymap:primary:overwrite' format ' %F{red}♺%f'
-  zstyle ':prezto:module:editor:info:keymap:alternate' format ' %F{blue}❮%F{blue}%B❮%F{fg3}❮%f%b'
-#  if [[ $sysenv == *"Ubuntu"* ]]; then
-#      zstyle ':prezto:module:editor:info:keymap:alternate' format ' %B%F{45}<%F{39}<%F{33}<%f%b'
-#  fi
+
+  zstyle ':prezto:module:editor:info:keymap:alternate'         format ' %F{blue}❮%F{blue}%B❮%F{fg3}❮%f%b'
+
+  zstyle ':prezto:module:editor:info:completing'               format '%B%F{red}...%f%b'
 
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
@@ -88,16 +76,11 @@ function prompt_enigmoid_setup {
     'rprompt' ' %F{blue}git%f$(coalesce "%b" "%p" "%c")%s' \
     'prompt' '%A%B%S%a%d%m%r%U%u'\
 
-	PROMPT='%F{blue}${_prompt_enigmoid_pwd}%f%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
   # Define prompts.
-  if [[ $sysenv == *"MacBook-Pro"* ]]; then
-	PROMPT='%F{blue}${_prompt_enigmoid_pwd}%f%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-  fi
+  PROMPT='%F{12}%m%F{blue} ${_prompt_enigmoid_pwd}%f%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
 
-#  if [[ $sysenv == *"Mac-Pro"* ]]; then
-#	PROMPT='%F{253}${_prompt_enigmoid_pwd}%f%(!. %B%F{red}#%f%b.)${editor_info[keymap]} '
-#  fi
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"} ${git_info:+${(e)git_info[rprompt]}}'
+
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
 

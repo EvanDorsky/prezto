@@ -36,6 +36,8 @@ export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.0.13/lib/pkgconfig/
 
 alias viminstall='vim +BundleInstall +qall'
 
+alias rpubc='cat ~/.ssh/id_rsa.pub|pbcopy'
+
 # Workspaces
 alias w-seml='cd ~/Git/ee-seminar;so .'
 alias w-semr='cd ~/Git/ee-seminar;./watch.sh&jerve&;open http://localhost:4000/ee-seminar/'
@@ -161,7 +163,7 @@ alias edi='ssh root@esatellite.local'
 alias tchrome='"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --enable-avfoundation --flag-switches-begin --flag-switches-end --allow-file-access-from-files'
 
 # Fun
-alias isjsup='echo GET / HTTP/1.1\\n\\n | nc olinjs.github.io 80 | head -n 1 | sed "s:\(.*404.*\):no:" | sed "s:\(.*200.*\):yes:" | say'
+alias isjsup='echo GET / HTTP/1.1\\n\\n | nc olinjs.github.io 80 | head -n 1 | sed "s:\(.*404.*\):no:" | sed "s:\(.*200.*\):yes:"'
 
 alias easter='ncal -e'
 
